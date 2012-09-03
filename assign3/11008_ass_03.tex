@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{algpseudocode}
+\begin{document}
+\title{CS 251}
+\author{Abhay Kumar}
+\maketitle
+ROLL:11008\\
+GROUP:G1
+\begin{center}
+\textbf{\huge ASSIGNMENT \#03}\\
+\ \\
+\ \\
+\section{MULTIPLICATION OF TWO LARGE NUMBER}
+\end{center}
+\begin{algorithmic}
+\For{$k=0 \to n-1 $}
+\State $carry \gets 0$
+\For{$j=0 \to n-1 $}
+\State $ product \gets (array\_number1[k]*array\_number2[j]+carry)$
+\State $ store\_table[j][k + j] \gets product \% 10 $
+\State $carry \gets product/10$
+\EndFor
+\State $store\_table[j][n+j] \gets carry$
+\EndFor
+\For {$k=0 \to 2*n-1$}
+\State $sum \gets carry$
+\For {$j = 0 \to n-1$}
+\State$sum \gets sum + table[j][i]$
+\EndFor
+\State $remainder[k] \gets  sum \% 10$
+\State $carry \gets sum/10$
+\EndFor
+\State $remainder[2*n] \gets carry$
+\end{algorithmic}
+\begin{center}
+\subsection {\#THEOREY\#}
+ 
+\end{center}
+ we used algorithm as we learnt in school days.
+ we used here two array storing  digit of both number of size n.
+ start multiplying the first element of the digit of first array to all digit of the second array and so on so far.
+ after that dividing it with 10 we taking the carry of multiplication.
+ by taking modulus  with 10 we store the digit that comes after multiplication. \\
+ At last that we are adding all digit that comes by multipliction with adding carries that we stored.
+\ \\
+\ \\
+\begin{center}
+\textbf{\huge TIME COMPLEXITY}
+
+ in the first half of the program we are using two loops from 0 to n-1 .
+ in second half of the program we also using two loops but another from
+ 0 to 2n-1 and other one from 0 to$ n-1$
+
+ so we have time complexity of $O(n^2)$ where n is the number of digit. 
+
+\end{center}
+\end{document}        
